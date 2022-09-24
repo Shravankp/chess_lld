@@ -1,20 +1,20 @@
-from abc import ABCMeta, abstractclassmethod, abstractmethod, ABC
+from abc import ABCMeta, abstractmethod
 
-class Pieces(ABC):
-    # @property
-    # @abstractmethod
-    # def colour(self):
-    #     pass
+class Pieces(metaclass = ABCMeta):
+    @property
+    @abstractmethod
+    def colour(self):
+        pass
     
-    @abstractclassmethod
+    @abstractmethod
     def validMoves(self):
         pass
 
-    @abstractclassmethod
+    @abstractmethod
     def isValidMove(self, x, y):
         pass
 
-    @abstractclassmethod
+    @abstractmethod
     def makeMove(self):
         pass
 
@@ -22,7 +22,11 @@ class Rook(Pieces):
 
     def __init__(self, colour, location) -> None:
         self.location = location
-        self.colour = colour
+        self._colour = colour
+
+    @property
+    def colour(self):
+        return self._colour
 
     def validMoves(self):
         # first check if moving current piece causes a check
@@ -41,7 +45,11 @@ class Knight(Pieces):
 
     def __init__(self, colour, location) -> None:
         self.location = location
-        self.colour = colour
+        self._colour = colour
+
+    @property
+    def colour(self):
+        return self._colour
 
     def validMoves(self):
         # first check if moving current piece causes a check
@@ -52,7 +60,6 @@ class Knight(Pieces):
 
     def makeMove(self, x, y):
         pass
-
     
     def __repr__(self):
         return 'Kn'
@@ -62,7 +69,11 @@ class Bishop(Pieces):
 
     def __init__(self, colour, location) -> None:
         self.location = location
-        self.colour = colour
+        self._colour = colour
+
+    @property
+    def colour(self):
+        return self._colour
 
     def validMoves(self):
         # first check if moving current piece causes a check
@@ -82,7 +93,11 @@ class King(Pieces):
 
     def __init__(self, colour, location) -> None:
         self.location = location
-        self.colour = colour
+        self._colour = colour
+
+    @property
+    def colour(self):
+        return self._colour
 
     def validMoves(self):
         # first check if moving current piece causes a check
@@ -102,7 +117,11 @@ class Queen(Pieces):
 
     def __init__(self, colour, location) -> None:
         self.location = location
-        self.colour = colour
+        self._colour = colour
+
+    @property
+    def colour(self):
+        return self._colour
 
     def validMoves(self):
         # first check if moving current piece causes a check
@@ -122,7 +141,11 @@ class Pawn(Pieces):
 
     def __init__(self, colour, location) -> None:
         self.location = location
-        self.colour = colour
+        self._colour = colour
+
+    @property
+    def colour(self):
+        return self._colour
 
     def validMoves(self):
         # first check if moving current piece causes a check
